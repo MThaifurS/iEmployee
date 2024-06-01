@@ -7,9 +7,9 @@ import java.util.ArrayList;
 
 public class Employee {
 
-    private ArrayList<String> names;
-    private ArrayList<Integer> ids;
-    private ArrayList<Integer> leaveEntitled;
+    private String names;
+    private int ids;
+    private int leaveEntitled;
     private ArrayList<Leave> leaves;
     private Profile profile;
 
