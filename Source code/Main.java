@@ -10,8 +10,6 @@ public class Main {
         Leaves leaves = new Leaves();
         Profile profile = new Profile();
 
-        employees.remove(employee);
-
 
 
     }

@@ -9,12 +9,12 @@ public class Employees {
 
 
     // Method to add an employee to the list
-    public void add(Employee employee) {
+    public void add() {
         // Add the employee to the list
     }
 
     // Method to remove an employee from the list
-    public void remove(Employee employee) {
+    public void remove() {
         System.out.println("remove employee");
         // Remove the employee from the list
     }
