@@ -6,15 +6,5 @@ public class Profile {
     
     private String department;
     private String dateJoined;
-
-
-    public String getDepartment() {
-        
-        return department;
-    }
-
-    public String getDateJoined() {
-        return dateJoined;
-    }
     
 }
