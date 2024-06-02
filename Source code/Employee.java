@@ -2,7 +2,7 @@
 /* This class represents individual employees with attributes like name, ID, 
 leave entitlement, leave list, and profile information. */
 
-//coded by thaifur
+//coded by muhammd thaifur
 
 import java.util.ArrayList;
 
