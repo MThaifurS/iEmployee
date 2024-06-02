@@ -2,6 +2,8 @@
 /*This class manages a collection of Employee objects, providing 
 methods to add, remove, print, and find employees. */
 
+//coded by muhammad thaifur
+
 import java.util.ArrayList;
 
 public class Employees {
