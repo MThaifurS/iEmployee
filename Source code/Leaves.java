@@ -1,6 +1,8 @@
  /* This class Manages a collection of Leave objects, providing 
  methods to add, remove, print, and find leaves.*/
 
+//coded by Thaifur(24000641), Adam Ali(24000180), Dwayne(24000257), Syabil(24001125)
+
 import java.util.ArrayList;
 import java.util.List;
 
