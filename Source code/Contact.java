@@ -1,3 +1,7 @@
+
+//coded by Thaifur(24000641), Adam Ali(24000180), Dwayne(24000257), Syabil(24001125)
+
+
 public class Contact {
     private String email;
     private String phoneNum;
@@ -32,12 +36,11 @@ public class Contact {
         this.phoneNum = phoneNum;
     }
 
-    // Overriding toString method
     @Override
     public String toString() {
-        return "Contact{" +
-                "email='" + email + '\'' +
-                ", phoneNum='" + phoneNum + '\'' +
-                '}';
-    }
+        String printString= "\nContact:\n" +
+            "Email: " + email + "\n" +
+            "Phone Number: " + phoneNum;
+        return printString;
+}
 }

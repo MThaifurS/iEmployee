@@ -1,3 +1,6 @@
+
+//coded by Thaifur(24000641), Adam Ali(24000180), Dwayne(24000257), Syabil(24001125)
+
 public class Name {
     private String firstName;
     private String middleName;
@@ -41,14 +44,12 @@ public class Name {
         return lastName;
     }
 
-    // Overriding toString method
     @Override
     public String toString() {
-        return "Name{" +
-                "firstName='" + firstName + '\'' +
-                ", middleName='" + middleName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
+        return "\nName:\n" +
+                "First Name: " + firstName + "\n" +
+                "Middle Name: " + middleName + "\n" +
+                "Last Name: " + lastName;
     }
 }
 

@@ -1,5 +1,7 @@
 import java.time.LocalDate;
 
+//coded by Thaifur(24000641), Adam Ali(24000180), Dwayne(24000257), Syabil(24001125)
+
 public class Leave {
     private int id; // Add id attribute
     private LocalDate startDate;
@@ -54,14 +56,23 @@ public class Leave {
         this.approvalStatus = approvalStatus;
     }
 
-    // Overriding toString method
+    public String convertBooleanValue(boolean approvalStatus){
+        if (approvalStatus == true){
+            String status = "accepted";
+            return status;
+        } 
+        String status = "decline";
+        return status;
+    }
+
+
     @Override
     public String toString() {
-        return "Leave{" +
-                "id=" + id +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
-                ", approvalStatus=" + approvalStatus +
-                '}';
+        return "\nLeave:\n" +
+                "ID: " + id + "\n" +
+                "Start Date: " + startDate + "\n" +
+                "End Date: " + endDate + "\n" +
+                "Approval Status: " + convertBooleanValue(approvalStatus);
+
     }
 }

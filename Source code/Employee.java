@@ -1,9 +1,9 @@
 
-/* This class represents individual employees with attributes like name, ID, 
-leave entitlement, leave list, and profile information. */
+//coded by Thaifur(24000641), Adam Ali(24000180), Dwayne(24000257), Syabil(24001125)
+
 
 public class Employee {
-    private Name names;
+    private Name name;
     private int id;
     private int leaveEntitled;
     private Leaves leaves; 
@@ -15,8 +15,8 @@ public class Employee {
     }
 
     // Parameterized constructor
-    public Employee(Name names, int id, int leaveEntitled, Profile profile) {
-        this.names = names;
+    public Employee(Name name, int id, int leaveEntitled, Profile profile) {
+        this.name = name;
         this.id = id;
         this.leaveEntitled = leaveEntitled;
         this.profile = profile;
@@ -25,11 +25,11 @@ public class Employee {
 
     // Getter and setter for names
     public Name getNames() {
-        return names;
+        return name;
     }
 
-    public void setNames(Name names) {
-        this.names = names;
+    public void setNames(Name name) {
+        this.name = name;
     }
 
     // Getter and setter for ids
@@ -77,13 +77,12 @@ public class Employee {
     }
 
     @Override
-public String toString() {
-    return "Employee{" +
-            "names=" + names +
-            ", id=" + id +
-            ", leaveEntitled=" + leaveEntitled +
-            ", leaves=" + leaves +
-            ", profile=" + profile +
-            '}';
-}
+    public String toString() {
+        return "\nEmployee:\n" +
+                name + "\n" +
+                "ID: " + id + "\n" +
+                "Leave Entitled: " + leaveEntitled + "\n" + "\n" +
+                 leaves +
+                 profile;
+    }
 }

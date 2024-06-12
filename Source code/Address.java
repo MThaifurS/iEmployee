@@ -60,14 +60,13 @@ public class Address {
         this.postalCode = postalCode;
     }
 
-    // Overriding toString method
     @Override
     public String toString() {
-        return "Address{" +
-                "street='" + street + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", postalCode='" + postalCode + '\'' +
-                '}';
+        String printString = "\nAddress:\n" +
+            "Street: " + street + "\n" +
+            "City: " + city + "\n" +
+            "State: " + state + "\n" +
+            "Postal Code: " + postalCode;
+        return printString;
     }
 }

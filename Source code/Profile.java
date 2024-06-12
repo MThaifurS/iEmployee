@@ -1,4 +1,5 @@
 
+//coded by Thaifur(24000641), Adam Ali(24000180), Dwayne(24000257), Syabil(24001125)
 
 public class Profile {
     
@@ -62,12 +63,11 @@ public class Profile {
 
     // Overriding toString method to print the profile information
     @Override
-    public String toString() {
-        return "Profile{" +
-                "department='" + department + '\'' +
-                ", dateJoined='" + dateJoined + '\'' +
-                ", contactInfo=" + contactInfo +
-                ", address=" + address +
-                '}';
-    }
+public String toString() {
+    return "\nEmployee Profile:\n" +
+            "Department: " + department + "\n" +
+            "Date Joined: " + dateJoined + "\n" +
+             contactInfo + "\n" +
+             address;
+}
 }
