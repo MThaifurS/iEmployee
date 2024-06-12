@@ -1,32 +1,42 @@
- /* This class Manages a collection of Leave objects, providing 
- methods to add, remove, print, and find leaves.*/
-
-//coded by Thaifur(24000641), Adam Ali(24000180), Dwayne(24000257), Syabil(24001125)
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class Leaves {
+ 
+ import java.util.ArrayList;
+ import java.util.List;
+ 
+ public class Leaves {
     private List<Leave> leaves;
 
+    // Default constructor
     public Leaves() {
         this.leaves = new ArrayList<>();
     }
 
+    // Method to add a leave to the list
     public void addLeave(Leave leave) {
-        // Add leave to the leaveList
+        this.leaves.add(leave);
     }
 
+    // Method to remove a leave from the list
     public void removeLeave(Leave leave) {
-        // Remove leave from the leaveList
+        this.leaves.remove(leave);
     }
 
+    // Method to print all leaves in the list
     public void printLeaves() {
-        // Print leaves in the leaveList
+        for (Leave leave : leaves) {
+            System.out.println(leave);
+        }
     }
 
+    // Method to find a leave by ID
     public Leave findLeaveById(int id) {
-        // Find and return leave from the leaveList by ID
-        return null;
+        for (Leave leave : leaves) {
+            if (leave.getId() == id) {
+                return leave;
+            }
+        }
+        System.out.println("ID not found: " + id);
+        return null; 
     }
+
+
 }
