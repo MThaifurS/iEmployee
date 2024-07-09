@@ -1,0 +1,146 @@
+package application;
+
+//coded by Thaifur(24000641), Adam Ali(24000180), Dwayne(24000257), Syabil(24001125)
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.paint.Color;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.AnchorPane;
+
+import java.time.LocalDate;
+
+public class ManageEmployeeLeaveListSceneController {
+
+    @FXML
+    private AnchorPane employeeLeaveListAnchorPane;
+
+    @FXML
+    private TableView<Employee> tableLeave;
+
+    @FXML
+    private TableColumn<Employee, String> fName;
+    
+    @FXML
+    private TableColumn<Employee, String> mName;
+
+    @FXML
+    private TableColumn<Employee, String> lName;
+
+    @FXML
+    private TableColumn<Employee, Integer> id;
+
+    @FXML
+    private TableColumn<Employee, LocalDate> startDate;
+
+    @FXML
+    private TableColumn<Employee, LocalDate> endDate;
+
+    @FXML
+    private TableColumn<Employee, String> approvalStatus;
+
+    @FXML
+    private TableColumn<Employee, Integer> leavesEntitled;
+
+    @FXML
+    private Button backButton;
+
+    @FXML
+    private Button approveButton;
+
+    @FXML
+    private Button disapproveButton;
+
+    private ObservableList<Employee> employeeData = FXCollections.observableArrayList();
+
+    @FXML
+    public void initialize() {
+        employeeData = SampleData.createSampleLeaves();
+
+        // Initialize table columns
+        fName.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getName().getFirstName()));
+        lName.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getName().getLastName()));
+        mName.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getName().getMiddleName()));
+        id.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getId()));
+        startDate.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getLeaves().getLeavesList().get(0).getStartDate()));
+        endDate.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getLeaves().getLeavesList().get(0).getEndDate()));
+        approvalStatus.setCellValueFactory(cellData -> new SimpleObjectProperty<>(convertApprovalStatus(cellData.getValue().getLeaves().getLeavesList().get(0).isApprovalStatus())));
+        leavesEntitled.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getLeaveEntitled()));
+
+        approvalStatus.setCellFactory(column -> new TableCell<Employee, String>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null || empty) {
+                    setText(null);
+                    setTextFill(Color.BLACK); 
+                } else {
+                    setText(item);
+                    if (item.equals("Accepted")) {
+                        setTextFill(Color.GREEN);
+                    } else if (item.equals("Declined")) {
+                        setTextFill(Color.RED);
+                    } else {
+                        setTextFill(Color.BLACK); 
+                    }
+                }
+            }
+        });
+
+        
+        tableLeave.setItems(employeeData);
+        
+        
+        tableLeave.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+    }
+
+
+    @FXML
+    public void handleBackButton(ActionEvent event) {
+        NextSceneButton ns = new NextSceneButton();
+        ns.nextScene(employeeLeaveListAnchorPane, "AdminHomeScene.fxml");
+    }
+
+    
+    @FXML
+    public void handleApproveButton(ActionEvent event) {
+        Employee selectedEmployee = tableLeave.getSelectionModel().getSelectedItem();
+        if (selectedEmployee != null) {
+            Leave selectedLeave = selectedEmployee.getLeaves().getLeavesList().get(0); // Assuming we are dealing with the first leave
+            selectedLeave.setApprovalStatus(true);
+            tableLeave.refresh();
+        } else {
+        	AlertHelper.showAlert(AlertType.ERROR, "Error", "Please select an employee to approve leave.");
+        }
+    }
+
+    
+    @FXML
+    public void handleDisapproveButton(ActionEvent event) {
+        Employee selectedEmployee = tableLeave.getSelectionModel().getSelectedItem();
+        if (selectedEmployee != null) {
+            Leave selectedLeave = selectedEmployee.getLeaves().getLeavesList().get(0); // Assuming we are dealing with the first leave
+            selectedLeave.setApprovalStatus(false);
+            tableLeave.refresh();
+        } else {
+            AlertHelper.showAlert(AlertType.ERROR, "Error", "Please select an employee to disapprove leave.");
+        }
+    }
+
+    
+    private String convertApprovalStatus(boolean approvalStatus) {
+        return approvalStatus ? "Accepted" : "Declined";
+    }
+
+
+    
+    
+}

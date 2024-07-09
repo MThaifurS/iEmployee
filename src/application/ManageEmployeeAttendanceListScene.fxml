@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="employeeAttendanceAnchorPane" prefHeight="705.0" prefWidth="1202.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ManageEmployeeAttendanceListSceneController">
+    <children>
+        <Label layoutX="125.0" layoutY="55.0" prefHeight="51.0" prefWidth="434.0" text="Employee Attendance List:">
+            <font>
+                <Font size="35.0" />
+            </font>
+        </Label>
+        <TableView fx:id="attendanceTable" layoutX="152.0" layoutY="141.0" prefHeight="528.0" prefWidth="973.0">
+            <columns>
+                <TableColumn prefWidth="120.0" text="First Name" fx:id="fName" />
+                <TableColumn prefWidth="120.0" text="Last Name" fx:id="lName" />
+                <TableColumn prefWidth="120.0" text="Middle Name" fx:id="mName" />
+                <TableColumn prefWidth="90.0" text="ID" fx:id="id" />
+                <TableColumn prefWidth="201.0" text="Hours Worked" fx:id="hoursWorked" />
+                <TableColumn prefWidth="151.0" text="Performance" fx:id="performance" />
+            </columns>
+        </TableView>
+        <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBackButton" text="&lt;--Back">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>
