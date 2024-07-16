@@ -60,8 +60,8 @@ public class EditEmployeeController {
     
 
     public void setEmployee(Employee employee) {
+    	
         this.employee = employee;
-        
         
         fNameTF.setText(employee.getName().getFirstName());
         lNameTF.setText(employee.getName().getLastName());
@@ -75,6 +75,7 @@ public class EditEmployeeController {
         postalCodeTF.setText(employee.getProfile().getAddress().getPostalCode());
         emailTF.setText(employee.getProfile().getContactInfo().getEmail());
         phoneNumberTF.setText(employee.getProfile().getContactInfo().getPhoneNum());
+        
     }
     
     

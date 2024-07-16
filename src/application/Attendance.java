@@ -32,7 +32,7 @@ public class Attendance {
 
     
     private boolean evaluatePerformance(double hoursWorked) {
-        return hoursWorked >= 40;
+        return hoursWorked >= 30;
     }
 
     

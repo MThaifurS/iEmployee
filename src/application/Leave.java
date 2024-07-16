@@ -9,17 +9,14 @@ public class Leave {
     private LocalDate endDate;
     private boolean approvalStatus;
 
-    
     public Leave() {
     }
 
-    
-    public Leave( LocalDate startDate, LocalDate endDate, boolean approvalStatus) {
+    public Leave(LocalDate startDate, LocalDate endDate, boolean approvalStatus) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.approvalStatus = approvalStatus;
     }
-
 
     
     public LocalDate getStartDate() {
@@ -40,7 +37,7 @@ public class Leave {
     }
 
     
-    public boolean isApprovalStatus() {
+    public boolean getApprovalStatus() {
         return approvalStatus;
     }
 
@@ -48,15 +45,10 @@ public class Leave {
         this.approvalStatus = approvalStatus;
     }
 
-    public String convertBooleanValue(boolean approvalStatus){
-        if (approvalStatus == true){
-            String status = "accepted";
-            return status;
-        } 
-        String status = "decline";
-        return status;
+    public String convertBooleanValue(boolean approvalStatus) {
+        return approvalStatus ? "accepted" : "declined";
     }
-
+    
 
     @Override
     public String toString() {
@@ -64,6 +56,5 @@ public class Leave {
                 "Start Date: " + startDate + "\n" +
                 "End Date: " + endDate + "\n" +
                 "Approval Status: " + convertBooleanValue(approvalStatus);
-
     }
 }

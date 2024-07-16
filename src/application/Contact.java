@@ -11,7 +11,6 @@ public class Contact {
     public Contact() {
     }
 
-    
     public Contact(String email, String phoneNum) {
         this.email = email;
         this.phoneNum = phoneNum;
@@ -21,7 +20,6 @@ public class Contact {
     public String getEmail() {
         return email;
     }
-
     
     public void setEmail(String email) {
         this.email = email;
@@ -32,7 +30,6 @@ public class Contact {
         return phoneNum;
     }
 
-    
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }

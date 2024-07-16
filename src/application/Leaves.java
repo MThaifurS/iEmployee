@@ -5,8 +5,6 @@ package application;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public class Leaves {
     private List<Leave> leavesList;
 
@@ -28,19 +26,13 @@ public class Leaves {
     
      public void addLeave(Leave leavesList) {
         this.leavesList.add(leavesList);
-        System.out.println("Leave added: ");
-        System.out.println("Current Leaves List:");
-        printLeaves();
+        
     }
 
     
     public void removeLeave(Leave leave) {
-        if (this.leavesList.remove(leave)) {
-            System.out.println("Leave removed: " );
-            System.out.println("Removal complete.");
-        } else {
-            System.out.println("Leave with ID " + " not found. Removal failed.");
-        }
+        this.leavesList.remove(leave);
+            
     }
 
     

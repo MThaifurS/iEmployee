@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="employeeListAnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ManageEmployeeListSceneController">
+<AnchorPane fx:id="employeeListAnchorPane" prefHeight="821.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ManageEmployeeListSceneController">
    <children>
-      <TableView fx:id="employeeTable" layoutX="36.0" layoutY="135.0" prefHeight="528.0" prefWidth="1133.0">
+      <TableView fx:id="employeeTable" layoutX="100.0" layoutY="136.0" prefHeight="528.0" prefWidth="1260.0">
          <columns>
             <TableColumn prefWidth="75.0" text="Name">
                <columns>
@@ -23,14 +23,14 @@
             <TableColumn fx:id="id" prefWidth="102.0" text="ID" />
             <TableColumn fx:id="dateJoined" prefWidth="116.0" text="Date Joined" />
             <TableColumn fx:id="department" prefWidth="140.0" text="Department" />
-            <TableColumn maxWidth="2000.0" prefWidth="700.0" text="Profile">
+            <TableColumn maxWidth="2000.0" prefWidth="533.0" text="Profile">
                <columns>
-                  <TableColumn fx:id="street" prefWidth="72.0" text="Street" />
-                  <TableColumn fx:id="city" prefWidth="67.0" text="City" />
+                  <TableColumn fx:id="street" prefWidth="100.0" text="Street" />
+                  <TableColumn fx:id="city" prefWidth="100.0" text="City" />
                   <TableColumn fx:id="state" prefWidth="100.0" text="State" />
-                  <TableColumn fx:id="postalCode" prefWidth="85.0" text="Postal Code" />
-                  <TableColumn fx:id="email" prefWidth="75.0" text="Email" />
-                  <TableColumn fx:id="phoneNum" prefWidth="75.0" text="Phone Num" />
+                  <TableColumn fx:id="postalCode" prefWidth="100.0" text="Postal Code" />
+                  <TableColumn fx:id="email" prefWidth="100.0" text="Email" />
+                  <TableColumn fx:id="phoneNum" prefWidth="100.0" text="Phone Num" />
                </columns>
             </TableColumn>
          </columns>
