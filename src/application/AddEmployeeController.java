@@ -58,12 +58,12 @@ public class AddEmployeeController {
                 Name name = new Name(fNameTF.getText(), mNameTF.getText(), lNameTF.getText());
                 Address address = new Address(streetTF.getText(), cityTF.getText(), stateTF.getText(), postalCodeTF.getText());
                 Contact contact = new Contact(emailTF.getText(), phoneNumberTF.getText());
-                Profile profile = new Profile(address, contact, dateJoinedTF.getText(), departmentTF.getText());
+                Profile profile = new Profile(address, contact, departmentTF.getText(), dateJoinedTF.getText());
                 Employee newEmployee = new Employee(name, id, profile);
                 
                 
                 dataLoader.insertEmployee(newEmployee);
-                manageEmployeeListSceneController.updateEmployee(newEmployee);
+                manageEmployeeListSceneController.refreshTable();
                 Stage stage = (Stage) submitButton.getScene().getWindow();
                 stage.close();
                 

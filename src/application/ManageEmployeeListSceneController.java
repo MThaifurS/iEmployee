@@ -1,6 +1,5 @@
 package application;
 
-import javafx.application.Platform;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -122,10 +121,6 @@ public class ManageEmployeeListSceneController {
 
             employeeTable.setItems(employeeData);
 
-            Platform.runLater(() -> {
-                employeeTable.refresh();
-            });
-
         } catch (SQLException e) {
             AlertHelper.showAlert(AlertType.ERROR, "Error", "Error loading employee data from database.");
             e.printStackTrace();
@@ -147,6 +142,11 @@ public class ManageEmployeeListSceneController {
         } else {
             AlertHelper.showAlert(AlertType.ERROR, "Error", "Employee not found in the list.");
         }
+    }
+    
+    public void refreshTable() {
+    	employeeData.clear();
+        loadEmployeeData();
     }
 
     @FXML
@@ -181,7 +181,6 @@ public class ManageEmployeeListSceneController {
             try {
                 LoadData dataLoader = new LoadData(conn);
                 dataLoader.deleteEmployee(selectedEmployee.getId()); 
-                System.out.println("Employee with ID " + selectedEmployee.getId() + " removed from database.");
             } catch (SQLException e) {
                 AlertHelper.showAlert(AlertType.ERROR, "Error", "Failed to remove employee from database.");
                 e.printStackTrace();

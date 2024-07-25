@@ -81,8 +81,6 @@ public class ManageEmployeeAttendanceListSceneController {
             LoadData dataLoader = new LoadData(conn);
             employeeData.addAll(dataLoader.getAllAttendance());
 
-            System.out.println("Loaded " + employeeData.size() + " employees.");
-
             fName.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getName().getFirstName()));
             lName.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getName().getLastName()));
             mName.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getName().getMiddleName()));

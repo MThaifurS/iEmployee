@@ -68,12 +68,6 @@ public class ManageEmployeeLeaveListSceneController {
     
     public void setConnection(Connection conn) {
         this.conn = conn;
-        
-        if (conn != null) {
-			System.out.println("leave ade connection");
-		} else {
-			System.out.println("leave takde connection");
-		}
     }
 	
 	 public Connection getConnection() {
@@ -150,8 +144,6 @@ public class ManageEmployeeLeaveListSceneController {
          NextSceneButton ns = new NextSceneButton();
          ns.nextScene(employeeLeaveListAnchorPane, root);
     }
-    
-
     
 
     
