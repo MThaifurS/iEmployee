@@ -41,11 +41,11 @@ public class AddEmployeeController {
     private Button cancelButton;
 
     private ManageEmployeeListSceneController manageEmployeeListSceneController;
-    private LoadData dataLoader;
+    private DataHandler dataHandler;
 
     public void setManageEmployeeListSceneController(ManageEmployeeListSceneController controller) {
         this.manageEmployeeListSceneController = controller;
-        this.dataLoader = new LoadData(controller.getConnection()); 
+        this.dataHandler = new DataHandler(controller.getConnection()); 
     }
 
     @FXML
@@ -62,7 +62,7 @@ public class AddEmployeeController {
                 Employee newEmployee = new Employee(name, id, profile);
                 
                 
-                dataLoader.insertEmployee(newEmployee);
+                dataHandler.insertEmployee(newEmployee);
                 manageEmployeeListSceneController.refreshTable();
                 Stage stage = (Stage) submitButton.getScene().getWindow();
                 stage.close();

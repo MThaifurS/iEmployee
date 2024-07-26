@@ -103,8 +103,8 @@ public class ManageEmployeeListSceneController {
 
     private void loadEmployeeData() {
         try {
-            LoadData dataLoader = new LoadData(conn);
-            employeeData.addAll(dataLoader.getAllEmployees());
+            DataHandler dataHandler = new DataHandler(conn);
+            employeeData.addAll(dataHandler.getAllEmployees());
 
             fName.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName().getFirstName()));
             lName.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName().getLastName()));
@@ -133,8 +133,8 @@ public class ManageEmployeeListSceneController {
             employeeData.set(index, updatedEmployee);
             
             try {
-                LoadData dataLoader = new LoadData(conn);
-                dataLoader.updateEmployee(updatedEmployee); 
+                DataHandler dataHandler = new DataHandler(conn);
+                dataHandler.updateEmployee(updatedEmployee); 
             } catch (SQLException e) {
                 AlertHelper.showAlert(AlertType.ERROR, "Error", "Failed to update employee in database.");
                 e.printStackTrace();
@@ -179,8 +179,8 @@ public class ManageEmployeeListSceneController {
 
             
             try {
-                LoadData dataLoader = new LoadData(conn);
-                dataLoader.deleteEmployee(selectedEmployee.getId()); 
+                DataHandler dataHandler = new DataHandler(conn);
+                dataHandler.deleteEmployee(selectedEmployee.getId()); 
             } catch (SQLException e) {
                 AlertHelper.showAlert(AlertType.ERROR, "Error", "Failed to remove employee from database.");
                 e.printStackTrace();
@@ -224,9 +224,9 @@ public class ManageEmployeeListSceneController {
 
     @FXML
     public void handleBackButton(ActionEvent event) throws IOException {
+    	
     	 FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminHomeScene.fxml"));
          Parent root = loader.load();
-         
          AdminHomeSceneController adminController = loader.getController();
          adminController.setConnection(conn);
 

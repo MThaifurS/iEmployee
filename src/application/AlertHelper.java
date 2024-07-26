@@ -6,6 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 public class AlertHelper {
+	//Class is reponsible for handling any alert notification to make codes easier to read
 
     public static void showAlert(AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);

@@ -21,7 +21,7 @@ public class Employee {
         this.name = name;
         this.id = id;
         this.profile = profile;
-        this.leaves = new Leaves(); // Initialize leaves list
+        this.leaves = new Leaves();
     }
     
     

@@ -78,8 +78,8 @@ public class ManageEmployeeAttendanceListSceneController {
     
     private void loadAttendanceData(Connection conn) {
         try {
-            LoadData dataLoader = new LoadData(conn);
-            employeeData.addAll(dataLoader.getAllAttendance());
+            DataHandler dataHandler = new DataHandler(conn);
+            employeeData.addAll(dataHandler.getAllAttendance());
 
             fName.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getName().getFirstName()));
             lName.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getName().getLastName()));
@@ -117,9 +117,9 @@ public class ManageEmployeeAttendanceListSceneController {
     
     @FXML
     public void handleBackButton(ActionEvent event) throws IOException {
+    	
     	 FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminHomeScene.fxml"));
          Parent root = loader.load();
-         
          AdminHomeSceneController adminController = loader.getController();
          adminController.setConnection(conn);
 

@@ -54,7 +54,6 @@ public class LoginSceneController {
             ResultSet rs = pstmt.executeQuery();
 
             if (rs.next()) {
-            	
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminHomeScene.fxml"));
                 Parent root = loader.load();
                 AdminHomeSceneController adminController = loader.getController();

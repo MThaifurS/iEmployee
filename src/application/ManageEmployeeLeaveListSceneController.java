@@ -70,17 +70,17 @@ public class ManageEmployeeLeaveListSceneController {
         this.conn = conn;
     }
 	
-	 public Connection getConnection() {
+	public Connection getConnection() {
 	    return conn;      
 	        
 	}
 	 
-	 private String convertApprovalStatus(boolean approvalStatus) {
+	private String convertApprovalStatus(boolean approvalStatus) {
 	        return approvalStatus ? "Accepted" : "Declined";
 	    }
 
     
-	 public void initialize() {
+	public void initialize() {
 	        if (conn != null) {
 	            System.out.println("Connection established successfully.");
 	            loadLeaveData(conn);
@@ -89,10 +89,10 @@ public class ManageEmployeeLeaveListSceneController {
 	        }
 	    }
 
-	 private void loadLeaveData(Connection conn) {
+	private void loadLeaveData(Connection conn) {
 	        try {
-	            LoadData dataLoader = new LoadData(conn);
-	            employeeData.addAll(dataLoader.getAllLeaves());
+	            DataHandler dataHandler = new DataHandler(conn);
+	            employeeData.addAll(dataHandler.getAllLeaves());
 
 	            fName.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getName().getFirstName()));
 	            lName.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getName().getLastName()));
@@ -102,7 +102,6 @@ public class ManageEmployeeLeaveListSceneController {
 	            endDate.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getLeaves().getLeavesList().get(0).getEndDate()));
 	            approvalStatus.setCellValueFactory(cellData -> new SimpleObjectProperty<>(convertApprovalStatus(cellData.getValue().getLeaves().getLeavesList().get(0).getApprovalStatus())));
 	            leavesEntitled.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getLeaveEntitled()));
-
 	            approvalStatus.setCellFactory(column -> new TableCell<Employee, String>() {
 	                @Override
 	                protected void updateItem(String item, boolean empty) {
@@ -122,6 +121,7 @@ public class ManageEmployeeLeaveListSceneController {
 	                    }
 	                }
 	            });
+	            
 
 	            tableLeave.setItems(employeeData);
 	            tableLeave.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
@@ -135,9 +135,9 @@ public class ManageEmployeeLeaveListSceneController {
     
     @FXML
     public void handleBackButton(ActionEvent event) throws IOException {
+    	
     	 FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminHomeScene.fxml"));
          Parent root = loader.load();
-         
          AdminHomeSceneController adminController = loader.getController();
          adminController.setConnection(conn);
 
